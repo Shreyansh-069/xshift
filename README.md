@@ -1,5 +1,5 @@
 # Xshift ⚡📄
-A fast, seamless image-to-PDF conversion web application wrapped in a stunning minimalistic Cyberpunk aesthetic, built with Node.js, Express, pdf-lib, and MongoDB.
+A fast, seamless image-to-PDF conversion web application, built with Node.js, Express, pdf-lib, and MongoDB.
 
 ## ✨ Features
 - **🔄 Instant PDF Conversion** — Upload JPEG or PNG files and instantly convert them into downloadable PDF documents.
