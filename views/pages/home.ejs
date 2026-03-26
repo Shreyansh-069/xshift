@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+<div class="page-container wooden-desk top-down-view">
+    <div class="ornate-frame">
+        <form action="/convert" method="POST" enctype="multipart/form-data" class="upload-area sapphire-boundary">
+            
+            <div class="floating-icons">
+                <span class="file-icon float-anim delay-1">JPEG</span>
+                <span class="file-icon float-anim delay-2">PNG</span>
+            </div>
+            
+            <input type="file" name="image" id="file-upload" class="hidden-input" accept="image/png, image/jpeg" required>
+            <label for="file-upload" class="upload-label">Place your parchment here...</label>
+            
+            <button type="submit" class="heavy-iron-btn bronze-sapphire-btn">CONVERT</button>
+            
+        </form>
+    </div>
+</div>
+
+<script>
+    // Add client-side logic to dynamically update text and visual state
+    document.getElementById('file-upload').addEventListener('change', function(e) {
+        if (this.files && this.files.length > 0) {
+            const label = document.querySelector('.upload-label');
+            label.innerText = 'Parchment loaded: ' + this.files[0].name;
+            label.classList.add('glowing-ink');
+            
+            // Intensify the magical container
+            document.querySelector('.upload-area').style.background = 'rgba(41, 182, 246, 0.2)';
+            document.querySelector('.upload-area').style.animationDuration = '1.5s';
+        }
+    });
+</script>
+</body>
+</html>

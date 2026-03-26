@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<div class="page-container immersive-loading">
+    <div class="falling-runes"></div>
+    
+    <div class="crystal-ball-stand bronze-stand">
+        <div class="crystal-ball">
+            <div class="vortex sapphire-gold-vortex"></div>
+            <div class="ghost-images"></div>
+        </div>
+    </div>
+    
+    <div class="loading-text pulse-text">Transmuting...</div>
+</div>
+
+<script>
+    // Simulate complex PDF compilation process time (4 seconds)
+    // In production, you would poll the server or wait for the actual file conversion
+    setTimeout(() => {
+        window.location.href = '/success';
+    }, 4000);
+</script>
+</body>
+</html>

@@ -4,9 +4,8 @@
   "description": "changes file extention",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1" , 
-    "dev":"nodemon index.js"
-  
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "Shreyansh-069",
@@ -14,9 +13,19 @@
   "type": "commonjs",
   "dependencies": {
     "dotenv": "^17.3.1",
+    "ejs": "^5.0.1",
     "express": "^5.2.1",
     "mongoose": "^9.3.3",
     "multer": "^2.1.1",
-    "nodemon": "^3.1.14"
-  }
+    "nodemon": "^3.1.14",
+    "pdf-lib": "^1.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shreyansh-069/xshift.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shreyansh-069/xshift/issues"
+  },
+  "homepage": "https://github.com/Shreyansh-069/xshift#readme"
 }
