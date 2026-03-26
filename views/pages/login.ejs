@@ -3,20 +3,56 @@
     <div class="scroll-container vertical-scroll">
         <div class="crest gold-embossed">Xshift</div>
         
-        <form action="/login" method="POST" class="magic-form">
+        <form id="magic-login-form" class="magic-form">
             <div class="input-slot parchment-slot">
-                <label>USERNAME</label>
-                <input type="text" name="username" class="sepia-ink" placeholder="Enter your moniker..." required>
+                <label>EMAIL</label>
+                <input type="email" id="email" name="email" class="sepia-ink" placeholder="Enter your email..." required>
             </div>
             
             <div class="input-slot parchment-slot">
                 <label>PASSWORD</label>
-                <input type="password" name="password" class="sepia-ink" placeholder="•••••••••" required>
+                <input type="password" id="password" name="password" class="sepia-ink" placeholder="•••••••••" required>
             </div>
             
-            <button type="submit" class="heavy-iron-btn emerald-glow">Enter the Sanctum</button>
+            <div id="form-error" style="color: #ff4d4d; margin-top: 10px; display: none; text-align: center; font-family: 'Cinzel', serif;">Error</div>
+            <button type="submit" class="heavy-iron-btn emerald-glow" style="margin-top: 20px;">Enter the Sanctum</button>
+            
+            <div style="margin-top:20px; text-align:center; font-family: 'Cinzel', serif; font-size: 0.9rem; color: #d0c090;">
+                <p>Don't have a moniker? <a href="/signup" style="color: #4db8ff; text-decoration: underline;">Forge a new one</a></p>
+            </div>
         </form>
     </div>
 </div>
+
+<script>
+document.getElementById('magic-login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorDiv = document.getElementById('form-error');
+    errorDiv.style.display = 'none';
+    
+    try {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            // Login successful
+            window.location.href = '/home';
+        } else {
+            errorDiv.style.display = 'block';
+            errorDiv.innerText = data.error || 'Invalid mystic credentials.';
+        }
+    } catch (err) {
+        errorDiv.style.display = 'block';
+        errorDiv.innerText = 'The connection to the sanctum was severed.';
+    }
+});
+</script>
 </body>
 </html>

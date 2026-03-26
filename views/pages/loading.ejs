@@ -16,7 +16,7 @@
     // Simulate complex PDF compilation process time (4 seconds)
     // In production, you would poll the server or wait for the actual file conversion
     setTimeout(() => {
-        window.location.href = '/success';
+        window.location.href = '/success?file=<%= file %>';
     }, 4000);
 </script>
 </body>
