@@ -81,13 +81,12 @@ app.post('/convert', upload.single('image'), async (req, res) => {
         });
 
         const pdfBytes = await pdfDoc.save();
-        const fileName = `converted-${Date.now()}.pdf`;
+        const fileName = `Xshift-${Date.now()}.pdf`;
         const uploadsDir = path.join(__dirname, 'public', 'uploads');
         if (!fs.existsSync(uploadsDir)) {
             fs.mkdirSync(uploadsDir, { recursive: true });
         }
         const filePath = path.join(uploadsDir, fileName);
-
         fs.writeFileSync(filePath, pdfBytes);
 
         res.redirect(`/loading?file=${fileName}`);
